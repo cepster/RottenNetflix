@@ -1,2 +1,6 @@
 config.xml
 bin/
+.classpath
+.project
+.settings/
+RottenNetflix.jar
