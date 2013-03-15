@@ -1,12 +1,11 @@
 <project name="MyProject" default="dist" basedir=".">
     <description>
-        simple example build file
+        Build File
     </description>
   <!-- set global properties for this build -->
   <property name="src" location="src"/>
   <property name="lib.dir" location="lib"/>
   <property name="build" location="build"/>
-  <property name="dist"  location="dist"/>
 
   <path id="thisClasspath">
   	<pathelement location="${lib.dir}/dom4j-1.6.1.jar"/>
@@ -19,13 +18,14 @@
     <mkdir dir="${build}"/>
   </target>
 
-  <target name="compile" depends="init"
-        description="compile the source " >
+  <target name="compile" 
+          depends="init"
+          description="compile the source " >
     <!-- Compile the java code from ${src} into ${build} -->
     <javac srcdir="${src}" destdir="${build}">
-	<classpath>
-  		<path refid="thisClasspath"/>
-  	</classpath>
+	    <classpath>
+  		  <path refid="thisClasspath"/>
+  	  </classpath>
     </javac>
     <copy todir="${build}">
     	<fileset dir="${src}" includes="**/*.png" />
@@ -33,8 +33,8 @@
   </target>
 
   <target name="clean"
-        description="clean up" >
-    <!-- Delete the ${build} and ${dist} directory trees -->
+          description="clean up" >
+    <!-- Delete the ${build} directory tree -->
     <delete dir="${build}"/>
   </target>
 </project>
